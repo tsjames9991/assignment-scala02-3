@@ -39,10 +39,17 @@ object ListOperations extends App {
   val log = Logger.getLogger(this.getClass)
   val obj = new ListOperations
   val testList: List[Int] = (1 to 10).toList
+  val listToAppend: List[Int] = (11 to 15).toList
   log.info(s"${testList}")
-  log.info("\n1. Finding Length")
+  log.info("\n\n1. Finding Length")
   log.info(s"Length of List: ${obj.length(testList)}")
-  log.info(s"\n4. Filter elements of list: Odd & Even List\n")
+  log.info("\n\n2. Finding If A Sub-Sequence Is Present")
+  log.info(s"${testList}\n")
+  log.info(s"${listToAppend}\n")
+  if(obj.hasSubSequence(testList,listToAppend)) log.info("Present\n") else log.info("Not Present\n")
+  log.info("\n\n3. Concatenate Two Lists")
+  log.info(s"Concatenated List: ${obj.concatenateList(testList,listToAppend)}")
+  log.info(s"\n\n4. Filter elements of list: Odd & Even List\n")
   val (odd, even) = obj.splitList(testList, (number: Int) => number % 2 == 0)
   log.info(s"Odd List : ${odd}\n")
   log.info(s"Even List : ${even}\n")
